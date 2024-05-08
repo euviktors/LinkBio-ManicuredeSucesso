@@ -1,0 +1,224 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*-------------------------------------------------------*/
+/*Definções raizes*/
+:root {
+--text-color: white;  /*altera as cores dos textos*/
+--bg-url: url(./bgnails-desktop02.png); /*altera o background*/
+--stroke-color: rgba(255, 255, 255, 0.5);
+--surface-color: rgba(255, 255, 255, 0.05);
+--surface-color-hover: #ff166b;
+--highlight-color: #ff166b;
+/*--switch-bg-url: url(./emoji-oculos-beijo.svg); icone do switch*/
+--iconfooter-color:  rgba(255, 255, 255, 0.61); /*altera a cor do icone do rodape*/
+}
+
+
+.light {    /* aqui é para no caso tenha a versão dark mode, ai basta tirar os comandos dos comentarios e alterar as informações*/
+ /*  --text-color: white;*/ /*altera as cores dos textos*/
+ /*  --bg-url: url(./assets/bg-desktop-tech.png);*/   /*altera o background*/
+ /*  --stroke-color: rgba(255, 255, 255, 0.5);*/
+ /*  --surface-color: rgba(255, 255, 255, 0.05);*/
+ /*  --surface-color-hover: rgba(0, 0, 0, 0.02);*/
+ /*  --highlight-color: rgba(255, 255, 255, 0.2);*/
+ /* --switch-bg-url: url(./assets/emoji-oculos-bigode.svg);    /*icone do switch*/
+ /* --iconfooter-color:  rgba(255, 255, 255, 0.61);   /*altera a cor do icone do rodape*/
+}
+
+/*fim das Definções raizes*/
+
+body{
+  background: var(--bg-url) no-repeat top center/cover; /*vai puxar as informações do root*/
+  height: 100vh;
+}
+
+body * {
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
+}
+
+/* Fundo do projeto
+  background-image: url(./assets/bg-mobile.jpg);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  */
+/*----- background: url(./assets/bg-mobile.jpg) no-repeat top center/cover; --- versão resumida*/
+/* quando tem o '*' significa que é um seletor universal
+para aplicar a todos os elementos do body*/
+
+#container {       
+width: 100%;
+max-width: 588px;
+margin: 56px auto 0px;
+padding: 0 24px;
+/*border: 1px solid red; /remover depois*/
+}
+/*margin-right: auto;
+margin-left: auto;*/
+/*Matem alinhado ao meio de forma automatica*/
+
+
+
+/* profile */
+#profile {
+  text-align: center;
+  padding: 24px;
+}
+
+#profile img {
+  width: 150px;
+}
+
+#profile p {
+  font-weight: 500;  /* Define o peso da fonte como 500, que representa a espessura média */
+  line-height: 24px; /* Define a altura da linha como 24 pixels */
+  margin-top: 8px;  /* Define a margem superior como 8 pixels */
+}
+
+@font-face {
+  font-family: 'Amsterdam Two';
+  src: url('./Fonts/amsterdam-two/amsterdam-two-ttf.ttf') format('truetype');
+}
+
+#profile .text-profile {
+  font-family: 'Amsterdam Two', sans-serif;
+  letter-spacing: 2px; /* ajusta o espaçamento das letras */
+  line-height: 50px; /* Define a altura da linha como 24 pixels */
+  font-weight: 150; /* Define o peso da fonte como 500, que representa a espessura média */
+  margin-top: 8px;  /* Define a margem superior como 8 pixels */
+  font-size: 30px; /* Ajuste o valor conforme necessário */
+}
+
+
+
+
+
+/* switch */
+#switch {
+position: relative;
+width: 64px;
+
+margin: 4px auto;
+}
+
+#switch button {
+width: 38px; /*tamanho do raio*/
+height: 38px; /*tamanho do raio*/
+background: rgba(255, 255, 255, 0) var(--switch-bg-url) no-repeat center; /*fundo*/
+border: 0;
+border-radius: 50%;
+
+position: absolute;
+top: 50%;
+left: 0;
+z-index: 1;
+transform: translateY(-50%);
+
+animation: slide-back 0.2s;
+}
+
+.light #switch button {
+animation: slide-in 0.2s forwards;
+}
+
+#switch button:hover {
+outline: 8px solid var(--highlight-color); /*tamanho da borda de hover*/
+}
+
+#switch span {
+display: block;
+width: 64px;
+height: 24px;
+background: var(--surface-color);
+border: 1px solid var(--stroke-color);
+backdrop-filter: blur(4px);
+-webkit-backdrop-filter: blur(4px);
+border-radius: 9999px;
+}
+
+
+/*Links - Lista*/
+ul {
+
+list-style: none; /*Seve para tirar os pontinhos da lista*/
+display: flex;  /*usando o Flex vai ocupar 100% do box*/
+flex-direction: column; /*colocar um abaixo do outro*/
+gap: 16px;
+
+padding: 24px 0;
+/*border: 1px solid red; /remover depois*/
+}
+
+ul li a {
+  
+  display: flex; /*usando o Flex vai ocupar 100% do box*/
+  align-items: center; /*alinhe os elementos no centro*/
+  justify-content: center; /*pegou o conteudo e alinhou no meio*/
+
+  padding: 16px 24px;
+
+  
+  background: var(--surface-color); /* cor*/
+  border: 1px solid var(--stroke-color); /* cor da borda */
+  border-radius: 8px;
+
+  backdrop-filter: blur(4px); /* blur é o embaçado */
+  -webkit-backdrop-filter: blur(4px);
+
+  text-decoration: none; /*serve para tirar a linha do link*/
+  font-weight: 500;  /*pode usar 500 ou bold, o peso do texto*/
+
+  transition: background 0.2s; /*transição, no caso quer que mexa somente no background*/
+
+}
+
+
+/* Hover efeito de quando passa o mouse por cima*/
+ul li a:hover {
+  background: var(--surface-color-hover);
+  border: 2px solid var(--text-color);
+}
+
+
+/* Social links --------------------------------*/
+#social-links  {
+display: flex;
+justify-content: center;
+
+padding: 24px 0;
+
+font-size: 24px; /* mudando de todos os elementos dentro do social links*/
+
+}
+
+#social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+
+  transition: background 0.2s; /* aonde quer que aconteça o efeito, no caso o background*/
+  border-radius: 50%; /* pra deixar redondo*/
+}
+
+#social-links a:hover {
+  background: var(--highlight-color);
+
+}
+/*Fim Social links --------------------------------*/
+
+
+footer {
+  padding: 24px 0;
+  text-align: center;
+  font-size: 14px;
+}
+/*coração do rodapé --------------------------------*/
+footer ion-icon{
+  color: var(--iconfooter-color);
+}
